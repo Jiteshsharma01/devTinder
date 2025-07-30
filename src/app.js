@@ -72,7 +72,12 @@ app.get("/profile", userAuth, async (req, res) => {
   } catch (error) {
     res.status(400).send("ERROR: " + err.message);
   }
-})
+});
+
+app.post("/sendConnectionRequest", userAuth, async (req, res) => {
+  const user = req.user;
+  res.send(user.firstName + "sent the connection request!");
+});
 
 // // Get user by email
 // app.get("/user", async (req, res) => {
